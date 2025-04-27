@@ -1,0 +1,52 @@
+﻿<Window x:Class="Lab2DPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2DPF"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        xmlns:SkiaSharp="clr-namespace:SkiaSharp;assembly=SkiaSharp"
+        mc:Ignorable="d"
+        Title="Lab2" Height="800" Width="1400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="10">
+
+            <RadioButton Content="2 Deriv." Height="25" Width="164" Margin="20,20,20,20" GroupName="Method" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Matrix" Height="25" Width="164" GroupName="Method" Checked="RadioButton_Checked"/>
+
+            <Label Content="I1:"/>
+            <TextBox x:Name="TextBoxI1" Width="165" Height="25"/>
+
+            <Label Content="I2:"/>
+            <TextBox x:Name="TextBoxI2" Width="165" Height="25"/>
+
+            <Button x:Name="BtnDrawGiven" Content="Draw (given)" Width="165" Height="30" Margin="0,10,0,0" Click="BtnDrawGiven_Click"/>
+            <Button x:Name="BtnDrawSpline" Content="Draw spline" Width="166" Height="30" Margin="0,10,0,0" Click="BtnDrawSpline_Click"/>
+            <Button x:Name="BtnClear" Content="Clear" Width="165" Height="30" Margin="0,20,0,0" Click="BtnClear_Click" />
+            
+
+
+            <!--<Image Height="51" Source="pack://application:,,,/task.png" Stretch="Fill" Width="197" Margin="0, 30,0,0">
+                <UIElement.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </UIElement.RenderTransform>
+            </Image>-->
+
+        </StackPanel>
+
+        <Border Grid.Column="1" Margin="10" BorderBrush="Black" BorderThickness="1" Background="White">
+            <ScottPlot:WpfPlot x:Name="WpfPlot1" />
+        </Border>
+    </Grid>
+</Window>
